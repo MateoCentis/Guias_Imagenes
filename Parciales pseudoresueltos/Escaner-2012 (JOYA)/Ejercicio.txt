@@ -1,0 +1,5 @@
+Estas imagenes fueron escaneadas de manera incorrecta. No estan perfectamente verticales y les falta zoom. 
+Usted debe alinear la imagen tanto en su horizontal y vertial y generar el zoom requerido  
+de manera que se vea lo mejor posible. No debe alterar ninguna imagen  y ni ningun  el texto existente,  
+el recorte nesesario alrededor de lo que "sobre" de cada imagen por el escaneo lejano debe hacerse 
+de forma automatica asi como tambien los grados nesesario a girar cada imagen para que queda alineadas.

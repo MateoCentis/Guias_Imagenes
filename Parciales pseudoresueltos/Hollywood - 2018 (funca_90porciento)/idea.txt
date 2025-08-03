@@ -1,0 +1,31 @@
+la idea en este ejercicio es primero encontrar las lineas divisorias del medio, 
+las dos verticales y las dos horizontales... 
+por eso umbralizo tirando a 0 todo aquello sobre 10 (el borde ese de interes esta en 7/8) 
+y me quedan enfatizados estos bordes que quiero encontrar. 
+Luego uso Sobel para encontrar bordes, sobel busca lineas verticales u horizontales... 
+Una vez encuentro las lineas (de las que dibuja elegi esas particulares 3, 0 y 1 creo) 
+y con esas lineas saco las coordenada y o x, dependiendo si es vertical u horizontal (si es vertical le saco la x) 
+y con esas posiciones, las resto para obtener el tamaño del cuadro del medio. 
+Con ese tamaño se el tamaño de todos los cuadros, y genero los 9 cuadros por separado en 9 variables...
+ Luego a motivo de recorrer todos mas facil, armo un array con todos los cuadros.
+
+Dentro de cada cuadro (en el ciclo) lo que hago es buscar un cuadrado de pixeles, de 15x15 (aprox) en el centro de la imagen 
+del cuadro (aproximadamente esta ubicado para encontrar en donde va el personaje) y si en ese fragmento la media es [106,109] 
+quiere decir que el fondo es celeste, por lo tanto no hay personaje. Entonces saco ese cuadro del array y lo 
+coloco en una variable "cuadroInteres" para trabajarlo... Luego procedo a cargar la imagen del profesor, y la segmento 
+por RGB considerando un cuadro de pixeles cercanos al profesor, porque al hacerle zoom veo que ahi es mas raro el rojo 
+porque aparecen puntos. Esta segmentación me devuelve una mascara binaria, que selecciona todo el borde y pone 0 sobre el profesor. 
+maskneg es el negativo de la mascara anterior, o sea 1 sobre el profesor y 0 sobre el fondo... (se uso un factor de la 
+varianza altisimo porque quizas este mal elegido el segmento de interes y sino da bordes rojos). 
+Luego busco donde tengo que ubicar al profesor... De manera rustica lo que hago es del cuadro de 
+interes tomar una fraccion mas chica (un 20% menos) de todos los bordes, para eliminar los bordes del cuadro... 
+Uso canny para encontrar bordes, y luego sobre esa imagen donde estan los bordes del banco uso DivisionesH y DivisionesV
+ para encontrar donde arranca el banco (esquina izquierda). Desde ahi la ubicación donde ubicarlo es a ese punto 
+ (el inicio del banco) sumarle el ancho y el alto de la imagen del profesor, extraigo ese fragmento de imagen 
+ (del cuadro de interes) y luego lo que hago es hacer multiplicación binaria... el fragmento extraido 
+ va a ser igual al mismo fragmento multiplicado por la mask (mascara del fondo) sumandole la maskneg 
+ (mascara del profesor) por la foto del profesor. Con ello extraigo de la imagen del profesor al profesor, 
+ y del fragmento extraido del cuadro solamente el fondo. Este fragmento extraido una vez modificado 
+ lo vuelvo a insertar donde iba en el cuadro de interes. y una vez hecho todo esto, lo que hago es buscar
+  la posición del cuadro de interes dentro de la imagen original... (es el if gigante ese, que lo hice a lo pampa jaja)
+   y una vez obtenida la posición directamente lo inserto en la imagen original el cuadro de interes en la posición que debe ir y listo

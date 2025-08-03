@@ -1,0 +1,18 @@
+Enhorabuena! Ud. ha sido contratado por el Servicio Meteorológico Nacional para diseñar un sistema de alerta de potencial caída de granizo 
+mediante el procesamiento de imágenes de radar. El radar está situado en INTA Paraná y mide reflectividad en dBZ. 
+El granizo se desarrolla en áreas de tormenta, cuya refectividad supera los 48dBZ y cuya extensión supera los 40km².
+Específicamente se le pide que dada una imagen de entrada (1.png, 2.png y 3.png), identifique las áreas de
+tormenta de manera automática y para cada una: marque con un punto rojo en el píxel de mayor dBZ y 
+emita una advertencia por consola con el siquiente mensaje.
+
+Extensión: ? Kms; Máximo dBZ: ?; Latitud del máximo: ?;Longitud del máximo ?;
+
+Datos extra:
+
+  Area de cobertura de un píxel: 0,5km²
+  Limites en latitud -32.9 a -30.79
+  Limites en longitud -61.75 a 59.25
+  Radio de cobertura 120km
+  
+  Ayuda: En el caso de que las áreas de tormenta identificadas se vean separadas por líneas de división política 
+  podrá eliminarlas aplicando dilatación (sobre una imagen binaria), seguido de erosión para recuperar el tamaño original del área.

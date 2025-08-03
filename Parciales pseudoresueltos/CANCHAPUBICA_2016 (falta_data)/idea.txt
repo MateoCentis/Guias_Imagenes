@@ -1,0 +1,18 @@
+La idea en este ejercicio es encontrar la linea horizontal de la cancha y la vertical del medio de la cancha... 
+(tengo algunas dudas en cuanto a la ubicaci�n de las publicidades)
+
+Para encontrar la linea horizontal utilizo Sobel para encontrar bordes en la imagen, 
+con 'F' genero un kernel que busca lineas horizontales (creo, sino a prueba y error jaja) 
+(se que un kernel busca filas y otro columnas, quizas lo implemente al reves tengo que revisar), 
+genero un suavizado para homogeneizar y sacar ruido... y 
+Aplico Hough (a prueba y error en el numero de linea, en este caso la linea 1 me tiro esa linea justo)...
+ Para la linea vertical era mas complicado porque hay muchas lineas, 
+ y no se cual de Hough me va a tirar esa, asi que aplico ciertas consideraciones, 
+ por ejemplo, que la linea horizontal esta seguro de la mitad de la imagen para abajo,
+  por eso tomo la parte de abajo de la imagen y saco las tribunas que me joden. 
+  una vez hecho esto hago lo mismo, sobel y luego suavizo  pero aca Sobel esta con 'C' 
+  porque son lineas verticales que busco... Una vez obtenidas las dos lineas probe con todas las 
+  imagenes y en todas encontraba la intersecci�n de ambas lineas bien...
+   con esas posiciones (la x de la vertical y el y de la horizontal) tengo el punto donde se cortan 
+   y desde ahi procedo a ubicar donde me pida las otras imagenes... 
+   Queda pendiente ver el tema de segmentar y colocar los jugadores, eso no lo pense aun

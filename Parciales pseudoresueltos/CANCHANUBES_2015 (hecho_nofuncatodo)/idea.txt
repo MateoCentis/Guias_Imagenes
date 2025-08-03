@@ -1,0 +1,8 @@
+La idea en este ejercicio como primer punto es limpiar las nubes, 
+utilice el concepto de clase de promediar las imagenes, para obtener una imagen mas limpia. 
+Luego basicamente lo que hago es aplicar canny (que aun no lo entiendo muy bien a los parametros), 
+primeramente homogeneizo para quitar ruido, muestro el resultado y busco las lineas de hough... 
+la linea 0 me tira una linea que no es la de la cancha, pero puedo usarla 
+(en caso que siempre aparezca esa como linea cero) como parametro en todas las imagenes y rotarla un cierto angulo, 
+calculando aproximadamente cuanta diferencia tiene esa linea con respecto a la linea de la cancha, 
+lo que resta en si son calculos y algo de programaci�n, pero la idea mas o menos creo que esta.

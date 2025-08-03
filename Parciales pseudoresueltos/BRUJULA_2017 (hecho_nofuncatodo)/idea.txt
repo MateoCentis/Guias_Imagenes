@@ -1,0 +1,14 @@
+La idea de este ejercicio es ver ciertas caracteristicas primero de la imagen, 
+el norte y la flecha que apunta son rojos... Por lo tanto segmento el color rojo 
+(180 en HSV con un margen de 8 de error o 4) una vez obtenido eso, veo que queda una mascara binaria. 
+El problema de esto es que me quedan ambas cosas, el norte y la flecha. 
+Viendo que el norte siempre esta a la misma distancia radial (caso en el que este girada) genero una mascara binaria 
+que es un circulo de radio r (correspondiente a la distancia del centro a donde se ve el norte) y aplico eso, 
+quedandome un punto blanco en donde estaria el norte, luego aplico las funciones viejas DIVISIONESH y DIVISIONESV 
+para encontrar de donde a donde esta el punto blanco (en x va desde 120 hasta 150 por ejemplo) y saco promedio de 
+ambos intervalos, quedandome con x como el promedio desde donde arranca el intervalo DIVISIONESV y donde termina y 
+lo mismo con y... Con eso tengo aproximadamente el centro de donde esta el norte... Aplico lo mismo para la flecha, 
+calcule a pata el radio donde encuentro algun punto blanco de la segmentacion del rojo sobre la flecha. 
+Entonces tengo las posiciones [x,y] de donde esta el norte y donde esta la flecha, la idea siguiente es simplemente 
+calcular el angulo conformado por estos dos punto a�adiendo el centro como otro punto mas [W/2, H/2] y por 
+la propiedad de vectores calcular cuanto es el angulo entre ambos "vectores" y con eso tengo mas o menos el ejercicio...

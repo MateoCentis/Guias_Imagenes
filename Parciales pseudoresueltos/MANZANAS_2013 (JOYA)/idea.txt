@@ -1,0 +1,18 @@
+la idea en este ejercicio es segmentar por color, pero al segmentar por HSV entran algunas hojas y parte del piso
+por lo que opte por usar otra funcion, segmentar por RGB en donde se puede configurar un factor de multiplicacion
+para lograr agrandar o disminuir el radio de colores que entran dentro de la esfera en el cubo RGB
+
+Con ello segmento bien las manzanas verdes y rojas sin tomar hojas ni piso...
+
+Una vez hecho esto, se ve que las manzanas chicas aparecen en la mascara con un tamaño menor, por lo cual
+erosiono con un elemento estructurante cruz para reducir los bordes y hacerlas desaparecer (el tamaño del elemento
+estructurante esta puesto a ojo no mas)... Luego de haber hecho eso dilato con un elemento estructurante cuadrado
+muy grande (exagerado) para luego hacer la resta de mascaras. Con eso obtengo grandes las manzanas medianas y grandes,
+prosigo restando las mascaras en ese orden para lograr que me de solamente las manzanas chicas (tiene su margen de
+error jaja)
+
+y bueno basicamente obtenidas las posiciones de las manzanas chicas, lo que hago es dilatar por un EE grandisimo para
+luego aplicar mascara, y lo que este dentro de esa mascara reemplazar el color (en RGB por las dudas por las mismas
+consideraciones anteriores), y luego para contar simplemente sumo las dos mascaras segmentadas y uso la funcion
+en funx que cuenta elementos... Con eso deberia de funcionar, aunque tiene su margen de error, por ahi cuenta una manzana
+como mediana y es chica
